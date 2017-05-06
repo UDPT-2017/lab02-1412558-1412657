@@ -4,7 +4,7 @@
 
 Thành viên:
 * [x] **1412558** Phạm Quốc Toàn (yamakuga)
-* [ ] **MSSV2** Tên sinh viên 2 (tên tài khoản github)
+* [x] **MSSV2** Tên sinh viên 2 (tên tài khoản github)
 
 URL: **URL hosting của bài tập**
 
