@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
     <!-- đọc cấu hình thiết bị-->
-    <title>Blog</title>
+    <title>Messages</title>
     <!-- thự viện font icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,7 +17,7 @@
 
 <body>
     <div class="container">
-        <div class="row">
+		<div class="row">
 			<div class="col-md-12">
 				<div class="header_right pull-right">
 					<ul class="parent">
@@ -48,70 +47,99 @@
 					<div class="collapse navbar-collapse" id="collapse">
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
 							<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-							<li><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
+							<li class="active"><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
 							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
-							<li class="active"><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
+							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
 						</ul>
 					</div>
                 
                     <ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-                        <li class="active">About</li>
+                        <li><a href="index.html">Home</a></li>
+						<li class="active">Messages</li>
                     </ol>
                 </nav>
             </div>
 			<!-- end  col-md-12-->
         </div>
-		<!-- end  row--> 
-
-
-        <div class="row">
-            <div class="col-md-12">
-               	<h1 class="text-center">THÔNG TIN CỦA NHÓM</h1>
-					<h3>Tên của nhóm là BLUE, nhóm được tạo ra để học tập môn Ứng Dụng Phân Tán. Màu xanh dương thể hiện trí tuệ, sức mạnh, vững vàng và mang tính chuyên nghiệp cao, nó mang lại cảm giác an tâm. Bên dưới là các thành viên của nhóm.</h3>
-
-				<div class="about-members" style="background-color: #999">
-						<div class="row">
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<img style="max-width:200px;" class="img-circle" src="img/avatar1.jpg" alt="avatar">
-								<p>MSSV: 1412558</p>
-								<p>Họ Tên: Phạm Quốc Toàn</p>
-								<p>Ngày Sinh: 22/04/1996</p>
-								<p>Địa chỉ: 35/7 Đỗ Thừa Luông, Tân Quý, Tân Phú, Hồ Chí Minh, Việt Nam</p>
-								<p>Email: bossdiemmaimai@gmail.com</p>
-
-							</div>
-
-							<div class="col-md-6 col-sm-12 col-xs-12">		
-								<div class="wrapper">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62707.93965304179!2d106.618012!3d10.792444!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752c07e7cf3aab%3A0x709df5647b350438!2zMzUgxJDhu5cgVGjhu6thIEx1w7RuZywgVMOibiBRdcO9LCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2sus!4v1492263626681" frameborder="0" allowfullscreen></iframe>
-                                </div>
-							</div>	
-						</div>
+		<!-- end  row-->    
+		
+		<div class="row">
+            <div class="col-md-3">
+				<div class="navbar-collapse navbar-default" id="sidebar">
+					<ul class="nav nav-list">
+						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Gửi tin nhắn</a></li>
+						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Xem bạn bè</a></li>
+						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Tin đã gửi</a></li>
+					</ul>
 				</div>
+            </div>
+            <!-- end col-md-3 -->
 
-                <hr>
-				<div class="about-members" style="background-color: #999">
-						<div class="row">		
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<img style="max-width:200px;" class="img-circle" src="img/avatar2.jpg" alt="avatar">
-								<p>MSSV: 1412657</p>
-								<p>Họ Tên: Nguyễn Tường Vy</p>
-								<p>Ngày Sinh: 20/11/1996</p>
-								<p>Địa chỉ: 310 Tô Ký, Tân Chánh Hiệp, Quận 12, Hồ Chí Minh, Việt Nam</p>
-								<p>Email: vytuong1120@gmail.com</p>
-							</div>
-							<div class="col-md-6 col-sm-12 col-xs-12">
-									<div class="wrapper">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3918.461514404589!2d106.6249417!3d10.8524595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a2729a54d95%3A0x8d37ef078ea2032a!2zMzEwIFTDtCBLw70sIFRydW5nIE3hu7kgVMOieSwgUXXhuq1uIDEyLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1492264773864" frameborder="0" allowfullscreen></iframe>
-                                    </div>
-							</div>		
+
+            <!-- content 9col -->
+            <div class="col-md-9">
+                <h2 class="text-center" > Tin nhắn đã nhận </h2>
+				<div class="row" style="font-weight: bold;">
+					<a href="#"  style="color: Black;">
+						<div class="col-md-2">
+							Từ: Toàn Phạm
 						</div>
-				</div>	
-            </div> 
+						<div class="col-md-2">
+							Lúc: 21h30 12/05/2017
+						</div>
+						<div class="col-md-8">
+							Ngày mai được nghỉ học
+						</div>
+					</a>
+				</div>
+				<hr>
+				<div class="row">
+					<a href="#"  style="color: Black;">
+						<div class="col-md-2">
+							Từ: Toàn Phạm
+						</div>
+						<div class="col-md-2">
+							Lúc: 21h30 12/05/2017
+						</div>
+						<div class="col-md-8">
+							Ngày mai được nghỉ học
+						</div>
+					</a>
+				</div>
+				<hr>
+				<div class="row" style="font-weight: bold;">
+					<a href="#"  style="color: Black;">
+						<div class="col-md-2">
+							Từ: Toàn Phạm
+						</div>
+						<div class="col-md-2">
+							Lúc: 21h30 12/05/2017
+						</div>
+						<div class="col-md-8">
+							Ngày mai được nghỉ học
+						</div>
+					</a>
+				</div>
+				<hr>
+				<div class="row">
+					<a href="#"  style="color: Black;">
+						<div class="col-md-2">
+							Từ: Toàn Phạm
+						</div>
+						<div class="col-md-2">
+							Lúc: 21h30 12/05/2017
+						</div>
+						<div class="col-md-8">
+							Ngày mai được nghỉ học
+						</div>
+					</a>
+				</div>
+				<hr>
+			</div> 
+            <!--end  10col-->
         </div>
-        <!-- end row -->
-
+		
+		
 		<!-- footer--> 
 		<div class="row">
 			<div class="col-md-12">
@@ -129,10 +157,8 @@
 			<!-- end col-md-12 -->
 		</div>
 		<!-- end row -->
-           
 
     </div>
     <!-- end container -->
-
 </body>
 </html>
