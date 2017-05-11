@@ -22,18 +22,11 @@
 			<div class="col-md-12">
 				<div class="header_right pull-right">
 					<ul class="parent">
-							<div>
-							<% if (user) { %>
-                        		<span>Hello! </span>
-                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
-                        		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
-                    		<% } %>
-
-                    		<% if (!user) { %>
-								<a href="/login" style="color: #999"><span class="glyphicon glyphicon-user"></span> Login </a> | 
-								<a href="/signup" style="color: #999"><span class="glyphicon glyphicon-pencil"></span> SignUp </a>
-                    		<% } %>
-						</div>
+							<div class='dropdown' style="width: 250px">
+								<span class="glyphicon glyphicon-user"></span>
+								<a href="/login" style="color: #999">LogIn</a> | 
+								<a href="/signup" style="color: #999">SignUp</a>
+							</div>
 					</ul>
 				</div>
 			</div>

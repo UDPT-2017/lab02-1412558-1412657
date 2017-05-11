@@ -11,8 +11,22 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+    
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').dataTable();
+        });
+    </script>
+
 </head>
 
 <body>
@@ -48,7 +62,7 @@
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
 							<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
 							<li class="active"><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
-							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
+							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Friends </a></li>
 							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
 						</ul>
 					</div>
@@ -56,7 +70,7 @@
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
 						<li><a href="Messages.html">Messages</a></li>
-						<li class="active">Received Messages</li>
+						<li class="active">Inbox Messages</li>
                     </ol>
                 </nav>
             </div>
@@ -68,9 +82,9 @@
             <div class="col-md-3">
 				<div class="navbar-collapse navbar-default" id="sidebar">
 					<ul class="nav nav-list">
-						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Gửi tin nhắn</a></li>
-						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Xem bạn bè</a></li>
-						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Tin đã gửi</a></li>
+						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Compose Email </a></li>
+						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Friends </a></li>
+						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Sent Email </a></li>
 					</ul>
 				</div>
             </div>
@@ -79,88 +93,100 @@
 
             <!-- content 9col -->
             <div class="col-md-9">
-                <h2 class="text-center" > Tin nhắn đã gửi </h2>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-			
+                <h1 class="text-center"> Inbox </h1>
+					<table id="myTable" class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr>
+								<th>Time</th>
+								<th>To User</th>
+								<th>Content</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr >
+								<th>Time</th>
+								<th>To User</th>
+								<th>Content</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr class="info">
+								<td><a href="#" style="color: Black;">21h30 12/05/2017</a></td>
+								<td>Yuma Kuga</td>
+								<td>Mai đượcsdf nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/10/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 22/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>03h30 05/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 07/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>20h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>03h30 05/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>21h30 07/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+							<tr>
+								<td>20h30 12/05/2017</td>
+								<td>Yuma Kuga</td>
+								<td>Mai được nghỉ học</td>
+							</tr>
+						</tbody>
+					</table>
 			</div> 
             <!--end  10col-->
         </div>

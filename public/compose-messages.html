@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" type ="text/css" href="css/jquery.dataTables.min.css">
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    
 </head>
 
 <body>
@@ -56,7 +60,7 @@
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
 						<li><a href="Messages.html">Messages</a></li>
-						<li class="active">Send Messages</li>
+						<li class="active">Compose Messages</li>
                     </ol>
                 </nav>
             </div>
@@ -68,9 +72,9 @@
             <div class="col-md-3">
 				<div class="navbar-collapse navbar-default" id="sidebar">
 					<ul class="nav nav-list">
-						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Gửi tin nhắn</a></li>
-						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Xem bạn bè</a></li>
-						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Tin đã gửi</a></li>
+						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Compose Messages </a></li>
+						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Friends </a></li>
+						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Sent Messages </a></li>
 					</ul>
 				</div>
             </div>
@@ -79,7 +83,7 @@
 
             <!-- content 9col -->
             <div class="col-md-9">
-                <h2 class="text-center" > Gửi tin nhắn </h2>
+                <h2 class="text-center" > Send Messages </h2>
 					
 					
 
@@ -88,13 +92,13 @@
 
 					
 					<div class="well">
-                    <h4>Nội dung gửi</h4>
+                    <h4>Content</h4>
                     <form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
                         <div class="form-group">
                             <textarea class="form-control" rows="2" id="textarea" name="textarea"></textarea>
                         </div>
                         <input type="hidden" name="" id="" value="">
-                        <button type="submit" class="btn btn-primary">Gửi</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>
 			
