@@ -8,20 +8,20 @@
     <title>Sent Messages</title>
     <!-- thự viện font icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/style.css">
     
-    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="css/select.dataTables.min.css">
-    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
-    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/dataTables.select.min.js"></script>
+    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../css/select.dataTables.min.css">
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="../js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
   			 $('#myTable').DataTable();
@@ -68,16 +68,16 @@
 					<!-- navbar collapse -->
 					<div class="collapse navbar-collapse" id="collapse">
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-							<li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-							<li class="active"><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
-							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
-							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
+							<li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+							<li class="active"><a href="/messages"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
+							<li><a href="/users"><span class="glyphicon glyphicon-user"></span> Users </a></li>
+							<li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
 						</ul>
 					</div>
                 
                     <ol class="breadcrumb">
-                        <li><a href="home.html">Home</a></li>
-						<li><a href="messages.html">Messages</a></li>
+                        <li><a href="/">Home</a></li>
+						<li><a href="/messages">Messages</a></li>
 						<li class="active">Sent Messages</li>
                     </ol>
                 </nav>
@@ -90,10 +90,10 @@
             <div class="col-md-3">
 				<div class="navbar-collapse navbar-default" id="sidebar">
 					<ul class="nav nav-list">
-						<li><a href="inbox-messages.html"><i class="fa fa-envelope"></i> Inbox Messages </a></li>
-						<li><a href="new-messages.html"><i class="fa fa-send"></i> New Messages </a></li>
-						<li><a href="sent-messages.html"><i class="fa fa-archive"></i> Sent Messages </a></li>
-						<li><a href="friends.html"><i class="fa fa-users"></i> Friends </a></li>
+						<li><a href="/messages/inbox-messages"><i class="fa fa-envelope"></i> Inbox Messages </a></li>
+						<li><a href="/messages/new-messages"><i class="fa fa-send"></i> New Messages </a></li>
+						<li><a href="/messages/sent-messages"><i class="fa fa-archive"></i> Sent Messages </a></li>
+						<li><a href="/messages/friends"><i class="fa fa-users"></i> Friends </a></li>
 					</ul>
 				</div>
             </div>
@@ -121,7 +121,7 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr class="info">
+							<tr>
 								<td>21h30 12/05/2017</td>
 								<td>Yuma Kuga</td>
 								<td>89798Mai đượcsdf nghỉ học</td>

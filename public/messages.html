@@ -11,8 +11,22 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+    
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').dataTable();
+        });
+    </script>
+
 </head>
 
 <body>
@@ -21,11 +35,18 @@
 			<div class="col-md-12">
 				<div class="header_right pull-right">
 					<ul class="parent">
-							<div class='dropdown' style="width: 250px">
-								<span class="glyphicon glyphicon-user"></span>
-								<a href="login.html" style="color: #999">LogIn</a> | 
-								<a href="signup.html" style="color: #999">SignUp</a>
-							</div>
+							<div>
+							<% if (user) { %>
+                        		<span>Hello! </span>
+                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+                    		<% } %>
+
+                    		<% if (!user) { %>
+								<a href="/login" style="color: #999"><span class="glyphicon glyphicon-user"></span> Login </a> | 
+								<a href="/signup" style="color: #999"><span class="glyphicon glyphicon-pencil"></span> SignUp </a>
+                    		<% } %>
+						</div>
 					</ul>
 				</div>
 			</div>
@@ -46,7 +67,7 @@
 					<!-- navbar collapse -->
 					<div class="collapse navbar-collapse" id="collapse">
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-							<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+							<li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
 							<li class="active"><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
 							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
 							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
@@ -54,9 +75,8 @@
 					</div>
                 
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-						<li><a href="Messages.html">Messages</a></li>
-						<li class="active">Sent Messages</li>
+                        <li><a href="home.html">Home</a></li>
+						<li class="active">Messages</li>
                     </ol>
                 </nav>
             </div>
@@ -68,9 +88,10 @@
             <div class="col-md-3">
 				<div class="navbar-collapse navbar-default" id="sidebar">
 					<ul class="nav nav-list">
-						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Gửi tin nhắn</a></li>
-						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Xem bạn bè</a></li>
-						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Tin đã gửi</a></li>
+						<li><a href="inbox-messages.html"><i class="fa fa-envelope"></i> Inbox Email </a></li>
+						<li><a href="new-messages.html"><i class="fa fa-send"></i> New Email </a></li>
+						<li><a href="sent-messages.html"><i class="fa fa-archive"></i> Sent Email </a></li>
+						<li><a href="friends.html"><i class="fa fa-users"></i> Friends </a></li>
 					</ul>
 				</div>
             </div>
@@ -79,88 +100,8 @@
 
             <!-- content 9col -->
             <div class="col-md-9">
-                <h2 class="text-center" > Tin nhắn đã gửi </h2>
+                <h1 class="text-center"> Messages Page</h1>
 					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-			
 			</div> 
             <!--end  10col-->
         </div>

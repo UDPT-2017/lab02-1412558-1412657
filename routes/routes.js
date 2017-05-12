@@ -93,6 +93,36 @@ module.exports = function(app, passport, pool) {
 	});
 
 	
+
+	app.get('/users',function(req, res){
+		res.render('users.ejs', {
+			user:req.user});
+	});
+
+	app.get('/messages',function(req, res){
+		res.render('messages.ejs', {
+			user:req.user});
+	});
+
+	app.get('/messages/inbox-messages',function(req, res){
+		res.render('inbox-messages.ejs', {
+			user:req.user});
+	});
+
+	app.get('/messages/new-messages',function(req, res){
+		res.render('new-messages.ejs', {
+			user:req.user});
+	});
+	
+	app.get('/messages/sent-messages',function(req, res){
+		res.render('sent-messages.ejs', {
+			user:req.user});
+	});
+
+	app.get('/messages/friends',function(req, res){
+		res.render('friends.ejs', {
+			user:req.user});
+	});
 }; // end export
 
 

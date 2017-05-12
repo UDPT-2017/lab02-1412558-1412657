@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,15 +18,22 @@
 
 <body>
     <div class="container">
-		<div class="row">
+        <div class="row">
 			<div class="col-md-12">
 				<div class="header_right pull-right">
 					<ul class="parent">
-							<div class='dropdown' style="width: 250px">
-								<span class="glyphicon glyphicon-user"></span>
-								<a href="login.html" style="color: #999">LogIn</a> | 
-								<a href="signup.html" style="color: #999">SignUp</a>
-							</div>
+						<div>
+							<% if (user) { %>
+                        		<span>Hello! </span>
+                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+                    		<% } %>
+
+                    		<% if (!user) { %>
+								<a href="/login" style="color: #999"><span class="glyphicon glyphicon-user"></span> Login </a> | 
+								<a href="/signup" style="color: #999"><span class="glyphicon glyphicon-pencil"></span> SignUp </a>
+                    		<% } %>
+						</div>
 					</ul>
 				</div>
 			</div>
@@ -46,7 +54,7 @@
 					<!-- navbar collapse -->
 					<div class="collapse navbar-collapse" id="collapse">
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-							<li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+							<li class="active"><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
 							<li><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
 							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
 							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
@@ -60,8 +68,9 @@
             </div>
 			<!-- end  col-md-12-->
         </div>
-		<!-- end  row-->    
-		
+		<!-- end  row--> 
+
+
 		<!-- footer--> 
 		<div class="row">
 			<div class="col-md-12">
@@ -79,8 +88,10 @@
 			<!-- end col-md-12 -->
 		</div>
 		<!-- end row -->
+           
 
     </div>
     <!-- end container -->
+
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
     <!-- đọc cấu hình thiết bị-->
-    <title>Messages</title>
+    <title>Inbox Messages</title>
     <!-- thự viện font icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -21,11 +21,18 @@
 			<div class="col-md-12">
 				<div class="header_right pull-right">
 					<ul class="parent">
-							<div class='dropdown' style="width: 250px">
-								<span class="glyphicon glyphicon-user"></span>
-								<a href="login.html" style="color: #999">LogIn</a> | 
-								<a href="signup.html" style="color: #999">SignUp</a>
-							</div>
+						<div>
+							<% if (user) { %>
+                        		<span>Hello! </span>
+                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+                    		<% } %>
+
+                    		<% if (!user) { %>
+								<a href="/login" style="color: #999"><span class="glyphicon glyphicon-user"></span> Login </a> | 
+								<a href="/signup" style="color: #999"><span class="glyphicon glyphicon-pencil"></span> SignUp </a>
+                    		<% } %>
+						</div>
 					</ul>
 				</div>
 			</div>
@@ -56,7 +63,7 @@
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
 						<li><a href="Messages.html">Messages</a></li>
-						<li class="active">Sent Messages</li>
+						<li class="active">Inbox Messages</li>
                     </ol>
                 </nav>
             </div>
@@ -68,9 +75,10 @@
             <div class="col-md-3">
 				<div class="navbar-collapse navbar-default" id="sidebar">
 					<ul class="nav nav-list">
-						<li><a href="send-messages.html"><i class="glyphicon glyphicon-pencil"></i> Gửi tin nhắn</a></li>
-						<li><a href="users.html"><i class="glyphicon glyphicon-user"></i> Xem bạn bè</a></li>
-						<li><a href="sent-messages.html"><i class="glyphicon glyphicon-envelope"></i> Tin đã gửi</a></li>
+						<li><a href="inbox-messages.html"><i class="fa fa-envelope"></i> Inbox Messages </a></li>
+						<li><a href="new-messages.html"><i class="fa fa-send"></i> New Messages </a></li>
+						<li><a href="sent-messages.html"><i class="fa fa-archive"></i> Sent Messages </a></li>
+						<li><a href="friends.html"><i class="fa fa-users"></i> Friends </a></li>
 					</ul>
 				</div>
             </div>
@@ -79,15 +87,15 @@
 
             <!-- content 9col -->
             <div class="col-md-9">
-                <h2 class="text-center" > Tin nhắn đã gửi </h2>
+                <h2 class="text-center" > Inbox Messages </h2>
 					
 					<div class="row" style="font-weight: bold;">
 						<a href="#"  style="color: Black;">
 							<div class="col-md-2">
-								Tới: Toàn Phạm
+								From: Toàn Phạm
 							</div>
 							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
+								Time: 21h30 12/05/2017
 							</div>
 							<div class="col-md-8">
 								Ngày mai được nghỉ học
@@ -96,71 +104,6 @@
 						
 					</div>
 					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								Tới: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Gửi Lúc: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
-					<hr>
-			
 			</div> 
             <!--end  10col-->
         </div>

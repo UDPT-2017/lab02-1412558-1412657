@@ -5,14 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
     <!-- đọc cấu hình thiết bị-->
-    <title>Home</title>
+    <title>New Messages</title>
     <!-- thự viện font icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" type ="text/css" href="css/jquery.dataTables.min.css">
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    
 </head>
 
 <body>
@@ -53,22 +57,63 @@
 					<!-- navbar collapse -->
 					<div class="collapse navbar-collapse" id="collapse">
 						<ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-							<li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-							<li><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
-							<li class="active"><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
+							<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+							<li class="active"><a href="messages.html"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
+							<li><a href="users.html"><span class="glyphicon glyphicon-user"></span> Users </a></li>
 							<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
 						</ul>
 					</div>
                 
                     <ol class="breadcrumb">
                         <li><a href="home.html">Home</a></li>
-						<li class="active">Users</li>
+						<li><a href="Messages.html">Messages</a></li>
+						<li class="active">New Messages</li>
                     </ol>
                 </nav>
             </div>
 			<!-- end  col-md-12-->
         </div>
 		<!-- end  row-->    
+		
+		<div class="row">
+            <div class="col-md-3">
+				<div class="navbar-collapse navbar-default" id="sidebar">
+					<ul class="nav nav-list">
+						<li><a href="inbox-messages.html"><i class="fa fa-envelope"></i> Inbox Messages </a></li>
+						<li><a href="new-messages.html"><i class="fa fa-send"></i> New Messages </a></li>
+						<li><a href="sent-messages.html"><i class="fa fa-archive"></i> Sent Messages </a></li>
+						<li><a href="friends.html"><i class="fa fa-users"></i> Friends </a></li>
+					</ul>
+				</div>
+            </div>
+            <!-- end col-md-3 -->
+
+
+            <!-- content 9col -->
+            <div class="col-md-9">
+                <h2 class="text-center" > Write new messages </h2>
+					
+					
+
+					
+					
+
+					
+					<div class="well">
+                    <h4>Content</h4>
+                    <form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2" id="textarea" name="textarea"></textarea>
+                        </div>
+                        <input type="hidden" name="" id="" value="">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+			
+			</div> 
+            <!--end  10col-->
+        </div>
+		
 		
 		<!-- footer--> 
 		<div class="row">
