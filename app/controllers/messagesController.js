@@ -11,26 +11,27 @@ var messagesController = {
 	},
 
 	new: function(req, res){
-		friendsModels.getFriendsById(req.user.id, function(err, result){
+		friendsModels.getFriendsById(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
+
 			res.render('new-messages.ejs', {friends_list: result});
 		});
 	},
 
 	postNew: function(req, res){
 
+		//console.log(formatted);
 		var message = {
-                        id_sender : req.user.id,               
-                        name_sender: req.user.name,            
-                        id_receiver : req.body.id_receiver,
+                        sender_id : req.user.user_id,                         
+                        receiver_id : req.body.receiver_id,
                         content : req.body.content,
                     };
 
 		messagesModels.postNew_messages(message, function(err, result){
 			if(err) 
 				res.send('Error');
-			res.render('new-messages.ejs');
+			//res.redirect('/');
 		});
 	},
 
@@ -39,7 +40,6 @@ var messagesController = {
 			if(err) 
 				res.send('Error');
 
-			console.log(req.user.user_id);
 
 			res.render('inbox-messages.ejs', {inbox_list: result});
 		});

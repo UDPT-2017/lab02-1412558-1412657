@@ -49,11 +49,6 @@ app.use(function(req,res,next){
 	return next();
 });
 
-var moment = require('moment');
-var momentNow = moment();
-var formatted = momentNow.format('YYYY-MM-DD HH:mm:ss');
-app.locals.moment = moment;
-app.locals.shortDateFormat = formatted;
 
 
 // routes ======================================================================
