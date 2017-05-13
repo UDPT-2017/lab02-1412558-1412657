@@ -24,7 +24,7 @@
 						<div>
 							<% if (user) { %>
                         		<span>Hello! </span>
-                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<strong><img src="<%= user.user_avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.user_name %></strong>
                         		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
                     		<% } %>
 

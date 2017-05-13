@@ -28,7 +28,7 @@
 						<div>
 							<% if (user) { %>
                         		<span>Hello! </span>
-                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<strong><img src="<%= user.user_avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.user_name %></strong>
                         		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
                     		<% } %>
 
@@ -96,22 +96,16 @@
 					<form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
 						<div class="form-group">
 								<label>Receiver: </label>
-								<select name="receive_id" class="form-control select2">
-									<option value="1">Kuga - Kuga@gmail.comm</option>
-									<option value="2">ty - ty@gmail.comm</option>
-									<option value="3">teo - teo@gmail.comm</option>
-									<option value="4">tum - tum@gmail.comm</option>
+								<select name="receiver_id" class="form-control select2">
+								<% friends_list.rows.forEach(function(friend){ %>
+                    				<option value="<%=friend.id_friend %>"><%= friend.friend_id %> - <%= friend.friend_email %></option>
+                				<% }); %>
 								</select>
-						</div>
-						<div class="form-group">
-								<label>Subject name: </label>
-								<input class="form-control" id="sbjname" name="sbjname"  placeholder="Exp: Hello" required />
 						</div>
 						<div class="form-group">
 							<label>Content: </label>
 							<textarea class="form-control" id="content" name="content"  rows="2" placeholder="Exp: Hello!. My name is Kuga, nice to know you" required></textarea>
 						</div>
-						<input type="hidden" name="" id="" value="">
 						<button type="submit" class="btn btn-primary">Send</button>
 	                </form>
 	            </div>

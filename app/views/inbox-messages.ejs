@@ -13,8 +13,20 @@
     <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-</head>
 
+    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../css/select.dataTables.min.css">
+    <link rel="stylesheet" href="../css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="../js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  			 $('#myTable').DataTable();
+	});
+    </script>
+
+</head>
 <body>
     <div class="container">
 		<div class="row">
@@ -24,7 +36,7 @@
 						<div>
 							<% if (user) { %>
                         		<span>Hello! </span>
-                        		<strong><img src="<%= user.avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.name %></strong>
+                        		<strong><img src="<%= user.user_avatar %>" alt="avatar" style="width: 30px; height: 30px"><%= user.user_name %></strong>
                         		<a href="/logout" style="color: #999"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
                     		<% } %>
 
@@ -88,21 +100,52 @@
             <!-- content 9col -->
             <div class="col-md-9">
                 <h2 class="text-center" > Inbox Messages </h2>
-					
-					<div class="row" style="font-weight: bold;">
-						<a href="#"  style="color: Black;">
-							<div class="col-md-2">
-								From: Toàn Phạm
-							</div>
-							<div class="col-md-2">
-								Time: 21h30 12/05/2017
-							</div>
-							<div class="col-md-8">
-								Ngày mai được nghỉ học
-							</div>
-						</a>
-						
-					</div>
+							<table id="myTable" class="table table-bordered table-condensed">
+						<thead>
+							<tr>
+								<th>Received time:</th>
+								<th>From:</th>
+								<th class="text" style="word-wrap: break-word;">Content:</th>
+								<th>Readed time:</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Recived time:</th>
+								<th>From:</th>
+								<th class="text" style="word-wrap: break-word;">Content:</th>
+								<th>Readed time:</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							
+								<% inbox_list.rows.forEach(function(inbox){ %>
+                    			
+									<% if (inbox.seen_time == null) 
+										{ %>
+											<tr style="color: black; font-weight: bold;">
+											<td><%= inbox.sent_time %></td>
+											<td><%= inbox.user_name %></td>
+											<td><%= inbox.content %></td>
+											<td><a href="/read-messages/u=<%= user.id%>/m=<%= inbox.id %>">Check read</a></td>
+											</tr>
+                    					<% } 
+                    					else
+                    					{ %>
+                    						<tr>
+											<td><%= inbox.sent_time %></td>
+											<td><%= inbox.user_name %></td>
+											<td><%= inbox.content %></td>
+											<td><%= inbox.seen_time %></td>
+											</tr>
+                    					<% }
+                    				%>
+
+                				<% }); %>
+                    	
+						</tbody>
+					</table>
+				
 					<hr>
 			</div> 
             <!--end  10col-->

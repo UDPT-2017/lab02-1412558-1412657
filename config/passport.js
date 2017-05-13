@@ -59,7 +59,7 @@ module.exports = function(passport) {
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
             //console.log(email);
-            pool.query('SELECT * FROM "Users" WHERE email = ($1)',[email], function(err, rows) {
+            pool.query('SELECT * FROM "Users" WHERE user_email = ($1)',[email], function(err, rows) {
                 if (err)
                 {
 
@@ -73,16 +73,16 @@ module.exports = function(passport) {
 
 
                     var newUser = {
-                        avatar : '/img/avatar_user_default.jpg',               
-                        name: req.body.fullname,            
-                        email : email,
-                        phone : req.body.phone,
-                        password: password  // use the generateHash function in our user model
+                        user_avatar : '/img/avatar_user_default.jpg',               
+                        user_name: req.body.fullname,            
+                        user_email : email,
+                        user_phone : req.body.phone,
+                        user_password: password  // use the generateHash function in our user model
                     };
 
                     // insert user in database
-                    pool.query('INSERT INTO "Users" ("name", "phone", "email", "avatar", "password", "facebook_token", "facebook_id", "facebook_link") VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
-                        [newUser.name, newUser.phone, newUser.email, newUser.avatar, newUser.password, '-1',-1, '-1'], function (err, rows){
+                    pool.query('INSERT INTO "Users" ("user_name", "user_phone", "user_email", "user_avatar", "user_password", "user_facebook_token", "user_facebook_id", "user_facebook_link") VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+                        [newUser.user_name, newUser.user_phone, newUser.user_email, newUser.user_avatar, newUser.user_password, '-1',-1, '-1'], function (err, rows){
                         if (err){
                 
                                 return done(err);
@@ -111,7 +111,10 @@ module.exports = function(passport) {
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
         function(req, email, password, done) { // callback with email and password from our form
-                pool.query('SELECT * FROM  "Users" WHERE  email = ($1)',[email], function(err, rows){
+
+                
+
+                pool.query('SELECT * FROM  "Users" WHERE  user_email = ($1)',[email], function(err, rows){
                 if (err)
                     return done(err);
                 // email not found
@@ -141,15 +144,12 @@ module.exports = function(passport) {
 
     // facebook will send back the token and profile
     function(token, refreshToken, profile, done) {
-
-        // asynchronous
-       // console.log("route 202");
         process.nextTick(function() {
 
             console.log(profile.id);
             // find the user in the database based on their facebook id
 
-           pool.query('select * from "Users" where facebook_id=($1)',[profile.id],function(err, rows){
+           pool.query('select * from "Users" where user_facebook_id=($1)',[profile.id],function(err, rows){
             if(err)
                 return done(err);
 
@@ -158,14 +158,14 @@ module.exports = function(passport) {
             else {
                 var newUser = new User();
                 // // set all of the facebook information in our user model
-                newUser.facebook.id    = profile.id; // set the users facebook id                   
-                newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
-                newUser.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-                newUser.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
-                newUser.avatar = profile.photos[0].value;
-                newUser.facebook.link = profile.profileUrl;
+                newUser.user_facebook.id    = profile.id; // set the users facebook id                   
+                newUser.user_facebook.token = token; // we will save the token that facebook provides to the user                    
+                newUser.user_name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                newUser.user_email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                newUser.user_avatar = profile.photos[0].value;
+                newUser.user_facebook.link = profile.profileUrl;
                 console.log('176');
-                pool.query('INSERT INTO "Users" (facebook_id, facebook_token, facebook_link, avatar, name, email, password) values ($1,$2,$3,$4,$5,$6,$7)',[newUser.facebook.id, newUser.facebook.token, newUser.facebook.link, newUser.avatar,newUser.name, newUser.email, '-1'],function(err, rows){
+                pool.query('INSERT INTO "Users" (user_facebook_id, user_facebook_token, user_facebook_link, user_avatar, user_name, user_email, user_password) values ($1,$2,$3,$4,$5,$6,$7)',[newUser.user_facebook.id, newUser.user_facebook.token, newUser.user_facebook.link, newUser.user_avatar,newUser.user_name, newUser.user_email, '-1'],function(err, rows){
                     if(err)
                         return done(err);
                     return done(null, newUser);

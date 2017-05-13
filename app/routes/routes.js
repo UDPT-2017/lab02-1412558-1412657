@@ -81,27 +81,24 @@ module.exports = function(app, passport, pool, controllers) {
 	}));
 
 
-	app.get('/', function(req, res) {
-		res.render('index.ejs', {
-			user : req.user // get the user out of session and pass to template
-		}); // load the index.ejs file
-	});
+	app.get('/', controllers.home.index);
 
 	app.get('/about', controllers.about.index);
 
 	
 
-	app.get('/users', controllers.users.index);
+	app.get('/users', isLoggedIn, controllers.users.index);
 
-	app.get('/messages', controllers.messages.index);
+	app.get('/messages', isLoggedIn, controllers.messages.index);
 
-	app.get('/messages/inbox-messages', controllers.messages.inbox);
+	app.get('/messages/inbox-messages', isLoggedIn, controllers.messages.inbox);
 
-	app.get('/messages/new-messages', controllers.messages.new);
+	app.get('/messages/new-messages', isLoggedIn, controllers.messages.new);
+	app.post('/messages/new-messages', isLoggedIn, controllers.messages.postNew);
 	
-	app.get('/messages/sent-messages', controllers.messages.sent);
+	app.get('/messages/sent-messages', isLoggedIn, controllers.messages.sent);
 
-	app.get('/messages/friends', controllers.messages.friend);
+	app.get('/messages/friends', isLoggedIn, controllers.messages.friend);
 }; // end export
 
 
@@ -113,7 +110,7 @@ function isLoggedIn(req, res, next) {
 
 	// if they aren't redirect them to the home page
 	// "/" => trang chủ
-	res.redirect('/');
+	res.redirect('/login');
 }
 //
 function isLogged(req, res, next) {

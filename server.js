@@ -49,10 +49,18 @@ app.use(function(req,res,next){
 	return next();
 });
 
+var moment = require('moment');
+var momentNow = moment();
+var formatted = momentNow.format('YYYY-MM-DD HH:mm:ss');
+app.locals.moment = moment;
+app.locals.shortDateFormat = formatted;
+
+
 // routes ======================================================================
 require('./app/routes/routes.js')(app, passport, pool, controllers); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
+
 
