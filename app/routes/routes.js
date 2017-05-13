@@ -91,6 +91,8 @@ module.exports = function(app, passport, pool, controllers) {
 
 	app.get('/messages', isLoggedIn, controllers.messages.index);
 
+	app.get('/messages/read-messages/id-messages=:id', isLoggedIn, controllers.messages.read);
+
 	app.get('/messages/inbox-messages', isLoggedIn, controllers.messages.inbox);
 
 	app.get('/messages/new-messages', isLoggedIn, controllers.messages.new);

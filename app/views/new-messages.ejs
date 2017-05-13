@@ -95,10 +95,10 @@
 	                <h1 class="text-center" > Write new messages </h1>
 					<form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
 						<div class="form-group">
-								<label>Receiver: </label>
+								<label>To Friend: </label>
 								<select name="receiver_id" class="form-control select2">
-								<% friends_list.rows.forEach(function(friend){ %>
-                    				<option value="<%=friend.friend_id %>"><%= friend.friend_id %> - <%= friend.friend_email %></option>
+								<% friends_list.rows.forEach(function(item){ %>
+                    				<option value="<%= item.friend_id %>"><%= item.friend_name %> - <%= item.friend_email %></option>
                 				<% }); %>
 								</select>
 						</div>

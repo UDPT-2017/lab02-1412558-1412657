@@ -7,7 +7,12 @@ var messagesController = {
 	},
 
 	sent: function(req, res){
-		res.render('sent-messages.ejs');
+		messagesModels.getSent_messages(req.user.user_id, function(err, result){
+			if(err) 
+				res.send('Error');
+			console.log(result);
+			res.render('sent-messages.ejs', {sent_list: result});
+		});
 	},
 
 	new: function(req, res){
@@ -21,7 +26,6 @@ var messagesController = {
 
 	postNew: function(req, res){
 
-		//console.log(formatted);
 		var message = {
                         sender_id : req.user.user_id,                         
                         receiver_id : req.body.receiver_id,
@@ -31,7 +35,8 @@ var messagesController = {
 		messagesModels.postNew_messages(message, function(err, result){
 			if(err) 
 				res.send('Error');
-			//res.redirect('/');
+			else
+				res.redirect('/messages/sent-messages');
 		});
 	},
 
@@ -39,9 +44,16 @@ var messagesController = {
 		messagesModels.getInbox_messages(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
-
-
 			res.render('inbox-messages.ejs', {inbox_list: result});
+		});
+	},
+
+	read: function(req, res){
+		messagesModels.read_messages(req.params.id, function(err, result){
+			if(err) 
+				res.send('Error');
+			else
+				res.redirect('/messages/inbox-messages');
 		});
 	},
 

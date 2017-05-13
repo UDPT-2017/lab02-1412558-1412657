@@ -119,12 +119,12 @@ module.exports = function(passport) {
                     return done(err);
                 // email not found
                  if (!rows.rows.length) {
-                    return done(null, false, req.flash('loginMessage', 'Email không tồn tại.')); // req.flash is the way to set flashdata using connect-flash
+                    return done(null, false, req.flash('loginMessage', 'Email is not have.')); // req.flash is the way to set flashdata using connect-flash
                 }
 
                 // if the user is found but the password is wrong
-                if (password != rows.rows[0].password)
-                    return done(null, false, req.flash('loginMessage', 'Sai mật khẩu!.')); // create the loginMessage and save it to session as flashdata
+                if (password != rows.rows[0].user_password)
+                    return done(null, false, req.flash('loginMessage', 'Password is incorreect!.')); // create the loginMessage and save it to session as flashdata
 
                 // all is well, return successful user
                 return done(null, rows.rows[0]);

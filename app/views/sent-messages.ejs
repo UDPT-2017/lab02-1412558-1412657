@@ -24,7 +24,9 @@
     <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-  			 $('#myTable').DataTable();
+  			 $('#myTable').DataTable({
+  			 	"order": [[1,"desc"],[4,"desc"]]
+  			 });
 	});
     </script>
 
@@ -106,111 +108,42 @@
 					<table id="myTable" class="table table-bordered table-hover table-condensed">
 						<thead>
 							<tr>
-								<th>Sent Time:</th>
+								<th>Sent time:</th>
 								<th>To:</th>
-								<th>Content:</th>
-								<th>Receiver see at time:</th>
+								<th class="text" style="word-wrap: break-word;">Content:</th>
+								<th>Readed time:</th>
 							</tr>
 						</thead>
 						<tfoot>
-							<tr >
-								<th>Sent Time:</th>
+							<tr>
+								<th>Sent time:</th>
 								<th>To:</th>
-								<th>Content:</th>
-								<th>Receiver see at time:</th>
+								<th class="text" style="word-wrap: break-word;">Content:</th>
+								<th>Readed time:</th>
 							</tr>
 						</tfoot>
 						<tbody>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>89798Mai đượcsdf nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/10/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 22/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>03h30 05/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 07/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>20h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>03h30 05/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>21h30 07/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
-							<tr>
-								<td>20h30 12/05/2017</td>
-								<td>Yuma Kuga</td>
-								<td>Mai được nghỉ học</td>
-								<td>21h30 12/05/2017</td>
-							</tr>
+							<% sent_list.rows.forEach(function(item){ %>
+								<% if (item.seen_time == null) 
+									{ %>
+										<tr style="color: black; font-weight: bold;">
+										<td><%= item.sent_time %></td>
+										<td><%= item.user_name %></td>
+										<td><%= item.content %></td>
+										<td><%= item.seen_time %></td>
+										</tr>
+                					<% } 
+                					else
+                					{ %>
+                						<tr>
+										<td><%= item.sent_time %></td>
+										<td><%= item.user_name %></td>
+										<td><%= item.content %></td>
+										<td><%= item.seen_time %></td>
+										</tr>
+                					<% }
+                				%>
+            				<% }); %>
 						</tbody>
 					</table>
 			</div> 

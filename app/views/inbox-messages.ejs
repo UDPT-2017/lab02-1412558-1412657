@@ -22,7 +22,9 @@
     <script type="text/javascript" src="../js/dataTables.select.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-  			 $('#myTable').DataTable();
+  			 $('#myTable').DataTable({
+  			 	"order": [[1,"desc"]]
+  			 });
 	});
     </script>
 
@@ -100,7 +102,7 @@
             <!-- content 9col -->
             <div class="col-md-9">
                 <h2 class="text-center" > Inbox Messages </h2>
-							<table id="myTable" class="table table-bordered table-condensed">
+					<table id="myTable" class="table table-bordered table-condensed">
 						<thead>
 							<tr>
 								<th>Received time:</th>
@@ -118,31 +120,27 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							
-								<% inbox_list.rows.forEach(function(inbox){ %>
-                    			
-									<% if (inbox.seen_time == null) 
-										{ %>
-											<tr style="color: black; font-weight: bold;">
-											<td><%= inbox.sent_time %></td>
-											<td><%= inbox.user_name %></td>
-											<td><%= inbox.content %></td>
-											<td><a href="/read-messages/u=<%= user.id%>/m=<%= inbox.id %>">Check read</a></td>
-											</tr>
-                    					<% } 
-                    					else
-                    					{ %>
-                    						<tr>
-											<td><%= inbox.sent_time %></td>
-											<td><%= inbox.user_name %></td>
-											<td><%= inbox.content %></td>
-											<td><%= inbox.seen_time %></td>
-											</tr>
-                    					<% }
-                    				%>
-
-                				<% }); %>
-                    	
+							<% inbox_list.rows.forEach(function(item){ %>
+								<% if (item.seen_time == null) 
+									{ %>
+										<tr style="color: black; font-weight: bold;">
+										<td><%= item.sent_time %></td>
+										<td><%= item.user_name %></td>
+										<td><%= item.content %></td>
+										<td><a href="/messages/read-messages/id-messages=<%= item.message_id %>">Check read</a></td>
+										</tr>
+                					<% } 
+                					else
+                					{ %>
+                						<tr>
+										<td><%= item.sent_time %></td>
+										<td><%= item.user_name %></td>
+										<td><%= item.content %></td>
+										<td><%= item.seen_time %></td>
+										</tr>
+                					<% }
+                				%>
+            				<% }); %>
 						</tbody>
 					</table>
 				
