@@ -4,7 +4,7 @@
 
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-module.exports = function(app, passport, pool) {
+module.exports = function(app, passport, pool, controllers) {
 	
 
 	// =====================================
@@ -87,42 +87,21 @@ module.exports = function(app, passport, pool) {
 		}); // load the index.ejs file
 	});
 
-	app.get('/about',function(req, res){
-		res.render('about.ejs', {
-			user:req.user});
-	});
+	app.get('/about', controllers.about.index);
 
 	
 
-	app.get('/users',function(req, res){
-		res.render('users.ejs', {
-			user:req.user});
-	});
+	app.get('/users', controllers.users.index);
 
-	app.get('/messages',function(req, res){
-		res.render('messages.ejs', {
-			user:req.user});
-	});
+	app.get('/messages', controllers.messages.index);
 
-	app.get('/messages/inbox-messages',function(req, res){
-		res.render('inbox-messages.ejs', {
-			user:req.user});
-	});
+	app.get('/messages/inbox-messages', controllers.messages.inbox);
 
-	app.get('/messages/new-messages',function(req, res){
-		res.render('new-messages.ejs', {
-			user:req.user});
-	});
+	app.get('/messages/new-messages', controllers.messages.new);
 	
-	app.get('/messages/sent-messages',function(req, res){
-		res.render('sent-messages.ejs', {
-			user:req.user});
-	});
+	app.get('/messages/sent-messages', controllers.messages.sent);
 
-	app.get('/messages/friends',function(req, res){
-		res.render('friends.ejs', {
-			user:req.user});
-	});
+	app.get('/messages/friends', controllers.messages.friend);
 }; // end export
 
 
@@ -146,46 +125,3 @@ function isLogged(req, res, next) {
 	// if they aren't redirect them to the home page
 	res.redirect('/');
 }
-
-////////////////////////////////SEND MAIL /////////////////////////////
-
-
- //////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////
-  					// FACEBOOK LOGIN //
-   //////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////
-    /*
- module.exports = function(app, passport) {
-
-    // route for home page
-    app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
-    });
-
-    // route for login form
-    // route for processing the login form
-    // route for signup form
-    // route for processing the signup form
-
-    // route for showing the profile page
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
-        });
-    });
-
-    // =====================================
-    // FACEBOOK ROUTES =====================
-    // =====================================
-    // route for facebook authentication and login
-   
-
-    // route for logging out
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-
-};
-*/

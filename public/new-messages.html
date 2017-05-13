@@ -77,7 +77,7 @@
 		
 		<div class="row">
             <div class="col-md-3">
-				<div class="navbar-collapse navbar-default" id="sidebar">
+				<div class="navbar-collapse navbar-default well" id="sidebar">
 					<ul class="nav nav-list">
 						<li><a href="inbox-messages.html"><i class="fa fa-envelope"></i> Inbox Messages </a></li>
 						<li><a href="new-messages.html"><i class="fa fa-send"></i> New Messages </a></li>
@@ -91,27 +91,31 @@
 
             <!-- content 9col -->
             <div class="col-md-9">
-                <h2 class="text-center" > Write new messages </h2>
-					
-					
-
-					
-					
-
-					
-					<div class="well">
-                    <h4>Content</h4>
-                    <form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="2" id="textarea" name="textarea"></textarea>
-                        </div>
-                        <input type="hidden" name="" id="" value="">
-                        <button type="submit" class="btn btn-primary">Send</button>
-                    </form>
-                </div>
-			
+				<div class="well">
+					<form action="" method="post" role="form" enctype="application/x-www-form-urlencoded">
+						<div class="form-group">
+								<label>Receiver: </label>
+								<select name="receive_id" class="form-control select2">
+									<option value="1">Kuga - Kuga@gmail.comm</option>
+									<option value="2">ty - ty@gmail.comm</option>
+									<option value="3">teo - teo@gmail.comm</option>
+									<option value="4">tum - tum@gmail.comm</option>
+								</select>
+						</div>
+						<div class="form-group">
+								<label>Subject name: </label>
+								<input class="form-control" id="sbjname" name="sbjname"  placeholder="Exp: Hello" required />
+						</div>
+						<div class="form-group">
+							<label>Content: </label>
+							<textarea class="form-control" id="content" name="content"  rows="2" placeholder="Exp: Hello!. My name is Kuga, nice to know you" required></textarea>
+						</div>
+						<input type="hidden" name="" id="" value="">
+						<button type="submit" class="btn btn-primary">Send</button>
+					</form>
+				</div>
 			</div> 
-            <!--end  10col-->
+            <!--end  9col-->
         </div>
 		
 		
