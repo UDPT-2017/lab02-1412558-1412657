@@ -68,8 +68,45 @@
             </div>
 			<!-- end  col-md-12-->
         </div>
-		<!-- end  row-->    
-		
+		<!-- end  row-->
+		<% users_list.rows.forEach(function(item1){ %>
+			<div class="row">
+				<div class="col-md-3 col-sm-0"></div>
+				<div class="col-md-1 col-sm-2">
+					<img class="media-object" src="<%= item1.user_avatar%>" alt="" style="width: 50px; height: 50px">
+				</div>
+				<div class="col-md-2 col-sm-4">
+					<span style="word-wrap: break-word;"><%= item1.user_name %></span>
+				</div>
+				<div class="col-md-2 col-sm-4">
+					<span style="word-wrap: break-word;"><%= item1.user_email %></span>
+				</div>
+				<div class="col-md-1 col-sm-2">
+					<a class="btn btn-success" href="#"><i class="glyphicon glyphicon-ok"></i>Add</a>
+				</div>
+				<div class="col-md-3 col-sm-0"></div>
+			</div>
+			<br>
+		<% }); %>
+		<div class="row">
+			<div class="col-md-3 col-sm-0"></div>
+			<div class="col-md-1 col-sm-2">
+				<img class="media-object" src="" alt="" style="width: 50px; height: 50px">
+			</div>
+			
+			<div class="col-md-2 col-sm-4">
+			tên
+			</div>
+			
+			<div class="col-md-2 col-sm-4">
+			email
+			</div>
+			
+			<div class="col-md-1 col-sm-2">
+			<a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i>Remove</a>
+			</div>
+			<div class="col-md-3 col-sm-0"></div>
+		</div>	
 		<!-- footer--> 
 		<div class="row">
 			<div class="col-md-12">
