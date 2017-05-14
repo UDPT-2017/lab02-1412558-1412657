@@ -22,8 +22,6 @@ Yêu cầu **bắt buộc**
 * [x] Website layout theo kiến trúc MVC với các thành phần được tách thành nhiều module theo hướng dẫn. (**MSSV**)
 * [x] Trang web được thiết kế sẽ bao gồm các trang: home, messages, users, about. (**MSSV**)
 * [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...). (**MSSV**)
-* [x] Cho phép người dùng đăng ký tài khoản bằng các thông tin: email, password, name, phone.(**1412558**)
-* [x] Đăng nhập bằng email và password.(**1412558**)
 * [x] Sau khi đăng nhập, người dùng sẽ được chuyển đến trang liệt kê danh sách các tin nhắn đã nhận, sắp xếp theo thứ tự thời gian, một nút để tạo tin nhắn mới, nút để xem danh sách bạn bè và nút để xem các tin nhắn đã gửi.(**MSSV**)
 * [x] Tin nhắn chưa đọc phải được làm nổi bật hơn các tin nhắn khác, có ghi nhận thời gian đã cách đây bao lâu.(**MSSV**)
 * [x] Trang users cho phép xem danh sách người dùng có trong hệ thống và phải có nút "add" với những người dùng chưa là bạn để thêm vào danh sách bạn bè.(**MSSV**)
@@ -32,6 +30,8 @@ Yêu cầu **bắt buộc**
 * [x] Nhấn "sent" sẽ chuyển sang giao diện hiển thị danh sách tin nhắn đã gửi. Mỗi tin nhắn cần hiện thời gian người nhận đã đọc.(**MSSV**)
 * [ ] Nhấn "refresh" để cập nhật danh sách tin nhắn mới nhất (ko nạp lại dữ liệu trên trang).(**MSSV**)
 * [ ] Cho phép người dùng layout tin nhắn bằng markdown. (**MSSV**)
+* [x] Cho phép người dùng đăng ký tài khoản bằng các thông tin: email, password, name, phone.(**1412558**)
+* [x] Đăng nhập bằng email và password.(**1412558**)
 
 Yêu cầu **không bắt buộc**:
 * [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**MSSV**)
@@ -46,7 +46,7 @@ Yêu cầu **không bắt buộc**:
 
 Liệt kê các **yêu cầu nâng cao** đã thực hiện:
 * [x] Cho phép người dùng đăng nhập bằng tài khoản facebook và lấy ảnh đại diện, email từ facebook. (**1412558**)
-
+* [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**MSSV**)
 ## Demo
 
 Link ảnh GIF demo ứng dụng:
