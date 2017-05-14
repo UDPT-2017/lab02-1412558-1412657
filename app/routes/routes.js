@@ -1,9 +1,4 @@
 // app/routes.js
-
-
-
-//var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 module.exports = function(app, passport, pool, controllers) {
 	
 
