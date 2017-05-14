@@ -10,7 +10,6 @@ var messagesController = {
 		messagesModels.getSent_messages(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
-			console.log(result);
 			res.render('sent-messages.ejs', {sent_list: result});
 		});
 	},
@@ -19,7 +18,6 @@ var messagesController = {
 		friendsModels.getFriendsById(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
-
 			res.render('new-messages.ejs', {friends_list: result});
 		});
 	},
@@ -35,8 +33,7 @@ var messagesController = {
 		messagesModels.postNew_messages(message, function(err, result){
 			if(err) 
 				res.send('Error');
-			else
-				res.redirect('/messages/sent-messages');
+			res.redirect('/messages/sent-messages');
 		});
 	},
 

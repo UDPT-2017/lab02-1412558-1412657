@@ -4,7 +4,7 @@ var LocalStrategy   = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 // load up the user model
-var User       = require('../app/models/user');
+var User       = require('./user');
 
 // load the auth variables
 var configAuth = require('./auth');
@@ -146,7 +146,7 @@ module.exports = function(passport) {
     function(token, refreshToken, profile, done) {
         process.nextTick(function() {
 
-            console.log(profile.id);
+            //console.log(profile.id);
             // find the user in the database based on their facebook id
 
            pool.query('select * from "Users" where user_facebook_id=($1)',[profile.id],function(err, rows){
@@ -158,14 +158,13 @@ module.exports = function(passport) {
             else {
                 var newUser = new User();
                 // // set all of the facebook information in our user model
-                newUser.user_facebook.id    = profile.id; // set the users facebook id                   
-                newUser.user_facebook.token = token; // we will save the token that facebook provides to the user                    
-                newUser.user_name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-                newUser.user_email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
-                newUser.user_avatar = profile.photos[0].value;
-                newUser.user_facebook.link = profile.profileUrl;
-                console.log('176');
-                pool.query('INSERT INTO "Users" (user_facebook_id, user_facebook_token, user_facebook_link, user_avatar, user_name, user_email, user_password) values ($1,$2,$3,$4,$5,$6,$7)',[newUser.user_facebook.id, newUser.user_facebook.token, newUser.user_facebook.link, newUser.user_avatar,newUser.user_name, newUser.user_email, '-1'],function(err, rows){
+                newUser.facebook.id    = profile.id; // set the users facebook id                   
+                newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
+                newUser.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                newUser.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                newUser.avatar = profile.photos[0].value;
+                newUser.facebook.link = profile.profileUrl;
+                pool.query('INSERT INTO "Users" (user_facebook_id, user_facebook_token, user_facebook_link, user_avatar, user_name, user_email, user_password) values ($1,$2,$3,$4,$5,$6,$7)',[newUser.facebook.id, newUser.facebook.token, newUser.facebook.link, newUser.avatar,newUser.name, newUser.email, '-1'],function(err, rows){
                     if(err)
                         return done(err);
                     return done(null, newUser);

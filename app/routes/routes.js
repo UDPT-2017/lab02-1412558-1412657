@@ -12,7 +12,6 @@ module.exports = function(app, passport, pool, controllers) {
 	// =====================================
 	// show the login form
 	app.get('/login', isLogged, function(req, res) {
-		// render the page and pass in any flash data if it exists
 		res.render('login.ejs', { message: req.flash('loginMessage') });
 	});
 
@@ -44,7 +43,7 @@ module.exports = function(app, passport, pool, controllers) {
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile', // redirect to the secure profile section
+		successRedirect : '/messages/inbox-messages', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
@@ -65,7 +64,7 @@ module.exports = function(app, passport, pool, controllers) {
 	// =====================================
 	app.get('/logout', function(req, res) {
 		req.logout();
-		res.redirect('/');
+		res.redirect('/login');
 	});
 
 
@@ -76,7 +75,7 @@ module.exports = function(app, passport, pool, controllers) {
 
 	app.get('/auth/facebook/callback', 
 	  passport.authenticate('facebook', { 
-	  	successRedirect: '/profile',
+	  	successRedirect: '/messages/inbox-messages',
 	    failureRedirect: '/login' 
 	}));
 
@@ -86,12 +85,15 @@ module.exports = function(app, passport, pool, controllers) {
 	app.get('/about', controllers.about.index);
 
 	
+	app.get('/friends/remove-friend/friend-id=:id', isLoggedIn, controllers.friends.remove);
+	app.get('/friends/add-friend/friend-id=:id', isLoggedIn, controllers.friends.add);
 
 	app.get('/users', isLoggedIn, controllers.users.index);
 
+
 	app.get('/messages', isLoggedIn, controllers.messages.index);
 
-	app.get('/messages/read-messages/id-messages=:id', isLoggedIn, controllers.messages.read);
+	app.get('/messages/read-messages/messages-id=:id', isLoggedIn, controllers.messages.read);
 
 	app.get('/messages/inbox-messages', isLoggedIn, controllers.messages.inbox);
 
