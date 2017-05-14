@@ -6,7 +6,7 @@ Thành viên:
 * [x] **1412558** Phạm Quốc Toàn (yamakuga)
 * [x] **1412657** Nguyễn Tường Vy (1412657)
 
-URL: **URL hosting của bài tập**
+URL: **https://lab02-1412558-1412657.herokuapp.com/**
 
 ## Yêu cầu
 
