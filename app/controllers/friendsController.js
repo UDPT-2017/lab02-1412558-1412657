@@ -1,5 +1,5 @@
-const friendsModels = require('../../app/models/friendsModels');
-const usersModels = require('../../app/models/usersModels');
+const friendsModels = require('../models/friendsModels');
+const usersModels = require('../models/usersModels');
 
 var friendsController = {
 	remove: function(req, res){
