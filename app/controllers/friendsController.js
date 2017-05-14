@@ -1,9 +1,7 @@
-const friendsModels = require('../models/friendsModels');
-const usersModels = require('../models/usersModels');
-
+const models = require('../models');
 var friendsController = {
 	remove: function(req, res){
-		friendsModels.remove(req.params.id, req.user.user_id, function(err, result){
+		models.friends.remove(req.params.id, req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error load data');
 			else{
@@ -13,7 +11,7 @@ var friendsController = {
 	},
 
 	add: function(req, res){
-		friendsModels.add(req.params.id, req.user.user_id, function(err, result){
+		models.friends.add(req.params.id, req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error load data');
 			else{

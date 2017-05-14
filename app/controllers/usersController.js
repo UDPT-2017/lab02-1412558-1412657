@@ -1,13 +1,11 @@
-const friendsModels = require('../models/friendsModels');
-const usersModels = require('../models/usersModels');
-
+const models = require('../models');
 var usersController = {
 	index: function(req, res){
-		usersModels.getAll(req.user.user_id, function(err, result1){
+		models.users.getAll(req.user.user_id, function(err, result1){
 			if(err) 
 				res.send('Error load data');
 			else{
-					friendsModels.getFriendsIdById(req.user.user_id, function(err, result2){
+					models.friends.getFriendsIdById(req.user.user_id, function(err, result2){
 					if(err) 
 						res.send('Error load data');
 					else{

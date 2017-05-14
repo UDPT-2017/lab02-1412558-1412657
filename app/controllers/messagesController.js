@@ -1,14 +1,11 @@
-
-const messagesModels = require('../models/messagesModels');
-const friendsModels  = require('../models/friendsModels');
-
+const models = require('../models');
 var messagesController = {
 	index: function(req, res){
 		res.render('messages.ejs');
 	},
 
 	sent: function(req, res){
-		messagesModels.getSent_messages(req.user.user_id, function(err, result){
+		models.messages.getSent_messages(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
 			res.render('sent-messages.ejs', {sent_list: result});
@@ -16,7 +13,7 @@ var messagesController = {
 	},
 
 	new: function(req, res){
-		friendsModels.getFriendsById(req.user.user_id, function(err, result){
+		models.friends.getFriendsById(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
 			res.render('new-messages.ejs', {friends_list: result});
@@ -31,7 +28,7 @@ var messagesController = {
                         content : req.body.content,
                     };
 
-		messagesModels.postNew_messages(message, function(err, result){
+		models.messages.postNew_messages(message, function(err, result){
 			if(err) 
 				res.send('Error');
 			res.redirect('/messages/sent-messages');
@@ -39,7 +36,7 @@ var messagesController = {
 	},
 
 	inbox: function(req, res){
-		messagesModels.getInbox_messages(req.user.user_id, function(err, result){
+		models.messages.getInbox_messages(req.user.user_id, function(err, result){
 			if(err) 
 				res.send('Error');
 			res.render('inbox-messages.ejs', {inbox_list: result});
@@ -47,7 +44,7 @@ var messagesController = {
 	},
 
 	read: function(req, res){
-		messagesModels.read_messages(req.params.id, function(err, result){
+		models.messages.read_messages(req.params.id, function(err, result){
 			if(err) 
 				res.send('Error');
 			else
