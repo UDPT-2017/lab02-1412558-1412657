@@ -1,6 +1,6 @@
-const friendsModels  = require('../models/friendsModels');
-const messagesModels = require('../models/messagesModels');
 
+const messagesModels = require('../models/messagesModels');
+const friendsModels  = require('../models/friendsModels');
 
 var messagesController = {
 	index: function(req, res){
