@@ -51,7 +51,7 @@ Liệt kê các **yêu cầu nâng cao** đã thực hiện:
 
 Link ảnh GIF demo ứng dụng:
 
-https://drive.google.com/open?id=0B71QaE_fwup6aF9NcmxWVWlGTVU
+![lab02](https://cloud.githubusercontent.com/assets/14866402/26277621/0432a086-3d40-11e7-8d64-e52596361e46.gif)
 
 Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
 
