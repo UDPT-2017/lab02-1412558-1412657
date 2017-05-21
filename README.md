@@ -34,24 +34,24 @@ Yêu cầu **bắt buộc**
 * [x] Đăng nhập bằng email và password.(**1412558**)
 
 Yêu cầu **không bắt buộc**:
-* [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**MSSV**)
+* [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**1412558**)
+* [x] Cho phép người dùng đăng nhập bằng tài khoản facebook và lấy ảnh đại diện, email từ facebook. (**1412558**)
 * [ ] Tự động refresh lại danh sách tin nhắn đã nhận sau 1 khoảng thời gian nhất định và có hiển thị đã refresh danh sách tin nhắn cách đây bao lâu.(**MSSV**)
 * [ ] Cuối danh sách tin nhắn sẽ có "load more" để nạp thêm 10 tin nhắn tiếp theo.(**MSSV**)
 * [ ] Khi người dùng kéo đến cuối danh sách sẽ tự động nạp thêm 10 tin nhắn tiếp theo.(**MSSV**)
 * [ ] Cho phép gửi email nội dung tin nhắn cho người dùng không nằm trong hệ thống.(**MSSV**)
-* [x] Cho phép người dùng đăng nhập bằng tài khoản facebook và lấy ảnh đại diện, email từ facebook. (**1412558**)
 * [ ] Cho phép gửi tin nhắn đến người dùng facebook.(**MSSV**)
 * [ ] Nạp danh sách bạn bè từ facebook khi người dùng đăng nhập bằng facebook.(**MSSV**)
 * [ ] Quản lý các thay đổi trong cơ sở dữ liệu (sử dụng [db-migrate](https://www.npmjs.com/package/db-migrate))(**MSSV**)
 
 Liệt kê các **yêu cầu nâng cao** đã thực hiện:
 * [x] Cho phép người dùng đăng nhập bằng tài khoản facebook và lấy ảnh đại diện, email từ facebook. (**1412558**)
-* [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**MSSV**)
+* [x] Chuyển nút "add" thành nút "remove" sau khi thêm bạn thành công.(**1412558**)
 ## Demo
 
 Link ảnh GIF demo ứng dụng:
 
-![Video Walkthrough](demo.gif)
+https://drive.google.com/open?id=0B71QaE_fwup6aF9NcmxWVWlGTVU
 
 Tạo ảnh GIF với chương trình [LiceCap](http://www.cockos.com/licecap/).
 
